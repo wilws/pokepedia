@@ -35,12 +35,14 @@ const Ability = (props: abilities) => {
   },[]);
 
   return (
-    <li className="relative mb-5 p-2">
-      <h4 className="uppercase font-bold text-gray-600">{name}</h4>
-      <p className="text-gray-600 leading-5">{effect} </p>
-      <div className="mt-2">
-        <h5 className="text-red-600 text-sm">Short Effect</h5>
-        <p className="leading-5 text-gray-600 text-sm">{shortEffect}</p>
+    <li className="relative mb-5 p-2 ">
+      <h4 className="uppercase font-bold text-gray-600 md:text-2xl">{name}</h4>
+      <p className="text-gray-900 leading-5 md:text-2xl">{effect} </p>
+      <div className="mt-2 md:mt-4">
+        <h5 className="text-red-600 text-sm md:text-xl">Short Effect</h5>
+        <p className="leading-5 text-gray-900 text-sm md:text-xl">
+          {shortEffect}
+        </p>
       </div>
     </li>
   );

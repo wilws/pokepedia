@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar";
 const Header = () => {
   return (
-    <header className="w-full  lg:flex lg:justify-between lg:items-end">
+    <header className="w-full  lg:flex lg:justify-between lg:items-end lg:pl-3 pr-3">
       <div className="text-center mb-2 pt-4 md:pt-9 lg:text-left lg:flex-none">
         <h1 className="font-mono text-3xl uppercase w-full tracking-wide font-bold md:text-6xl">
           Poké-Pedia

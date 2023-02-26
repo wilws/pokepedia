@@ -1,0 +1,153 @@
+/* this is to customised the style of radar */
+
+.shape{
+    /* fill-opacity:.3 */
+    
+}    
+
+.shape:hover{
+    /* fill-opacity:.65;z-index:100 */
+   
+}
+    
+.scale{
+    /* fill:#fafafa;stroke:#999;stroke-width:.2 */
+    fill:rgba(255, 255, 255, 0.308) !important;
+}
+    
+    
+.axis{
+    /* stroke:#555;stroke-width:.2 */
+}
+
+
+.dot{
+    /* fill:#fff;stroke:#e7e8e7;r:5;-webkit-transition:r .2s;-o-transition:r .2s;transition:r .2s */
+}
+
+.dot:hover{
+    /* stroke:#bbb;r:8 */
+}
+
+    
+.caption{
+    fill:rgba(61, 61, 61, 0.815)!important;
+    font-weight:bolder;
+    text-shadow:none !important;
+    font-size: 15px;
+    text-transform: uppercase;
+ 
+}
+
+/* HP */
+.caption:nth-child(1){
+    transform: translateX(0px);
+    transform: translateY(0px);
+}
+
+/* Attack */
+.caption:nth-child(2){
+    transform: translateX(0px);
+}
+
+/* S.Attacl */
+.caption:nth-child(3){
+    transform: translateX(-10px);
+}
+
+/* Defend */
+.caption:nth-child(4){  
+    transform: translateY(-25px);
+}
+
+/* S.Defend */
+.caption:nth-child(5){
+    transform: translateX(10px);
+}
+
+/* Speed */
+.caption:nth-child(6){
+    transform: translateX(0px);
+}
+
+
+@media (min-width: 768px) {
+
+    .caption{
+        font-size: 20px;
+    }
+    /* HP */
+    .caption:nth-child(1){
+        /* transform: translateX(0px); */
+        transform: translateY(2px);
+    }
+
+    /* Attack */
+    .caption:nth-child(2){
+        transform: translateX(15px);
+    }
+
+    /* S.Attacl */
+    .caption:nth-child(3){
+    transform: translateX(15px);
+    }
+
+    /* Defend */
+    .caption:nth-child(4){  
+        /* transform: translatey(0px); */
+    }
+
+    /* S.Defend */
+    .caption:nth-child(5){
+    transform: translateX(-15px);
+    }
+
+    /* Speed */
+    .caption:nth-child(6){
+        transform: translateX(-15px);
+    }
+ }
+
+
+
+@media (min-width: 1024px) {
+
+    .caption{
+        font-size: 20px;
+    }
+    /* HP */
+    .caption:nth-child(1){
+        /* transform: translateX(0px); */
+        transform: translateY(3px);
+    }
+
+    /* Attack */
+    .caption:nth-child(2){
+        transform: translateX(30px);
+    }
+
+    /* S.Attacl */
+    .caption:nth-child(3){
+    transform: translateX(30px);
+    }
+
+    /* Defend */
+    .caption:nth-child(4){  
+        /* transform: translateY(0px); */
+    }
+
+    /* S.Defend */
+    .caption:nth-child(5){
+    transform: translateX(-30px);
+    }
+
+    /* Speed */
+    .caption:nth-child(6){
+        transform: translateX(-40px);
+    }
+ }
+
+
+
+
+/*# sourceMappingURL=index.css.map*/

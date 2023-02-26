@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../store/";
 import { useEffect, useRef } from "react";
 
 
-let isInitial = true;  
+ 
 
 const PokemonList = (): JSX.Element => {
 
@@ -22,10 +22,11 @@ const PokemonList = (): JSX.Element => {
   const dispatch = useAppDispatch();
   
 
+  let isInitial = true; 
   useEffect(() => {
     if (isInitial) {
       dispatch(fetchInitialPokemonList());
-      isInitial = false
+      isInitial = false;
     }
   }, []);
 

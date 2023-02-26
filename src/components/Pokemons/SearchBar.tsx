@@ -51,7 +51,7 @@ const SearchBar = () => {
     return (
       <div className="w-ful h-12 box-border  pt-2 pb-2 md:h-14 lg:w-5/12 lg:flex-none">
         <input
-          className="bg-slate-300 w-full rounded-3xl h-full focus:ring focus:ring-black-300 focus:outline-none pl-3 pr-3"
+          className="bg-slate-300 w-full rounded-3xl h-full focus:ring focus:ring-black-300 focus:outline-none pl-3 pr-3 text-center"
           type="text"
           value={inputValue}
           placeholder="search by pokemon's name here"
