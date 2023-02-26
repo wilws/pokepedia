@@ -6,7 +6,7 @@ import Header from "./PokemonHeader";
 const PokemonIndex = () => {
 
     return (
-      <div className="bg-zinc-50 h-screen pl-4 pr-4">
+      <div className="h-screen pl-4 pr-4">
 
         <Header />
        

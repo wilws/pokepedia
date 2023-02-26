@@ -12,8 +12,6 @@ const Ability = (props: abilities) => {
     const [name, setName] = useState<string>("");
 
 
-
- 
   useEffect(() => {
     dispatch(fetchAbilityData(ability.url))
       .then((abilityData) => {
@@ -37,19 +35,16 @@ const Ability = (props: abilities) => {
   },[]);
 
   return (
-    <li>
-      Name : {name} <br />
-      SHort Effect : {shortEffect} <br />
-      Effect : {effect} <br />
+    <li className="relative mb-5 p-2">
+      <h4 className="uppercase font-bold text-gray-600">{name}</h4>
+      <p className="text-gray-600 leading-5">{effect} </p>
+      <div className="mt-2">
+        <h5 className="text-red-600 text-sm">Short Effect</h5>
+        <p className="leading-5 text-gray-600 text-sm">{shortEffect}</p>
+      </div>
     </li>
   );
 };
 
 export default Ability;
 
-//    {
-//      is_hidden;
-//    }
-//    {
-//      slot;
-//    }

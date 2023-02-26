@@ -11,7 +11,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        BigShouldersStencil : ['Big Shoulders Text', 'cursive'],
+        BigShouldersStencil: ["Big Shoulders Text", "cursive"],
+      },
+      height: {
+        150: "36rem",
+      },
+      width: {
+        90: "350px",
+      },
+      translate: {
+        'p110':"110%",
       }
     },
   },

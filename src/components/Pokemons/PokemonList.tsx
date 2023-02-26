@@ -56,7 +56,7 @@ const PokemonList = (): JSX.Element => {
 
   return (
     <div ref={container}>
-      <ul className="pt-3 h-fit">
+      <ul className="pt-3 h-full lg:flex lg:flex-wrap">
         {supplier.data.map((pokemon) => {
           const id = extractId(pokemon.url);
           const imgUrl = getImage(id);

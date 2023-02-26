@@ -3,8 +3,6 @@ const State = (props: states) => {
   return (
     <li>
       {stat.name}
-    
-   
       {base_stat}
     </li>
   );
@@ -12,6 +10,3 @@ const State = (props: states) => {
 
 export default State;
 
-
-//   // {stat.url}
-//    {effort}

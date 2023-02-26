@@ -6,6 +6,7 @@ import { getImage } from "@/utils/utils";
 import Ability from "../../../components/PokemonDetails/Ability";
 import State from "../../../components/PokemonDetails/State";
 import { FastAverageColor } from "fast-average-color";
+import Abilities from "../../../components/PokemonDetails/Abilities"
 
 let initial = true;
 const Pokemon = () => {
@@ -16,11 +17,8 @@ const Pokemon = () => {
   const [stats, setStats] = useState<Array<states>>([]);
   const [imgSrc, setImgSrc] = useState<string>('');
   const [name, setName] = useState<string>("");
-
-  const [backgroundColor, setBackgroundColor] = useState<string>("");
-
-
-
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const [showSkill, setShowSkill] = useState<boolean>(false);
 
   useEffect(() => {
     if (router.isReady) {
@@ -62,48 +60,82 @@ const Pokemon = () => {
     const fac = new FastAverageColor();
     fac.getColorAsync(imgSrc)
       .then((color) => {
-        setBackgroundColor(color.rgb);
+  
+        if (backgroundRef.current) {
+          backgroundRef.current.style.backgroundColor = color.rgba;
+        }
       })
       .catch((e) => {
         console.log(e);
       });
   }, [imgSrc]);
 
+  const showSkillHandler = () => {
+      setShowSkill((prevState:boolean)=> !prevState);
+  }
+  
+  const goBackToFontPage = () => {
+    router.push("/");
+  }
 
 
-  let abilitiesKey = 0;
+
+
   let statesKey = 0;
 
+  const buttonStyle =
+    "absolute bottom-1 rounded-lg bg-slate-600 text-white pl-2 pr-2 text-base z-0";
+
   return (
-    <div>
-      <img src={imgSrc}/>
-      <h1>{name}</h1>
-      <ul>
-        {abilities.map((ability) => {
-          return (
-            <Ability
-              key={abilitiesKey++}
-              ability={ability.ability}
-              is_hidden={ability.is_hidden}
-              slot={ability.slot}
-            />
-          );
-        })}
-        -----
-        {stats.map((state) => {
-          return (
-            <State
-              key={statesKey++}
-              base_stat={state.base_stat}
-              effort={state.effort}
-              stat={state.stat}
-            />
-          );
-        })}
-      </ul>
+    <div
+      ref={backgroundRef}
+      className="relative overflow-hidden h-screen w-full p-5 z-0"
+    >
+      <button
+        type="button"
+        onClick={() => router.back()}
+        className="absolute z-50 top-2 right-2 rounded-lg border-2 border-slate-500 text-slate-500 pl-1 pr-1"
+      >
+        Back
+      </button>
+      <h1 className="font-BigShouldersStencil tracking-wide drop-shadow-lg text-5xl  uppercase font-bold  text-stone-700">
+        {name}
+      </h1>
+
+      <img src={imgSrc} />
+      <button
+        type="button"
+        onClick={showSkillHandler}
+        className={
+          showSkill
+            ? `${buttonStyle} hidden transition ease-linear duration-1000 `
+            : buttonStyle
+        }
+      >
+        view Skills
+      </button>
+
+      <Abilities
+        abilities={abilities}
+        showSkill={showSkill}
+        closeFunction={showSkillHandler}
+      />
     </div>
   );
-
 }
 
 export default Pokemon;
+
+
+  // <ul>
+  //   {stats.map((state) => {
+  //     return (
+  //       <State
+  //         key={statesKey++}
+  //         base_stat={state.base_stat}
+  //         effort={state.effort}
+  //         stat={state.stat}
+  //       />
+  //     );
+  //   })}
+  // </ul>;
