@@ -121,6 +121,7 @@ const State = (props: Props) => {
               meta: { color: "blue" },
             },
           ]}
+          size = { 300 }
         />
       </div>
     </div>
@@ -128,4 +129,4 @@ const State = (props: Props) => {
 };
 
 export default State;
-  // size = { graphSize };
+  
