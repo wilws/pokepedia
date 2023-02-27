@@ -96,7 +96,7 @@ const Pokemon = () => {
       <button
         type="button"
         onClick={() => router.push("/")}
-        className="absolute z-50 top-2 right-2 rounded-lg border-2 border-slate-500 text-slate-500 pl-1 pr-1 md:text-2xl md:top-4 md:right-5 xl:text-4xl"
+        className="absolute z-50 top-4 right-3 rounded-lg border-2 border-slate-500 text-slate-500 pl-1 pr-1 md:text-2xl md:top-4 md:right-5 xl:text-4xl"
       >
         Back
       </button>
