@@ -61,8 +61,8 @@ const State = (props: Props) => {
 
     setHp(stats[0].base_stat);
     setAttack(stats[1].base_stat);
-    setSpecialAttack(stats[2].base_stat);
-    setDefend(stats[3].base_stat);
+    setSpecialAttack(stats[3].base_stat);
+    setDefend(stats[2].base_stat);
     setSpecialDefense(stats[4].base_stat);
     setSpeed(stats[5].base_stat);
 
