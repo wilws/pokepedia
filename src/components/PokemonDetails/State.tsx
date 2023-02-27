@@ -29,19 +29,23 @@ const State = (props: Props) => {
   const determineGraphSize = () => {
   
     const { innerWidth: width, innerHeight: height } = window;
-    let _graphSize = "280";
+    let _width = "280";
     let _height = "300"
   
     if (innerWidth <= 640) {
-      _graphSize = "4000";
+      _width = "4000";
       _height = "250";
     } else if (innerWidth >= 768) {
-       _graphSize = "500";
+       _width = "500";
       _height = "320";
     }
 
-    document.querySelector("svg").setAttribute("width", _graphSize);
-    document.querySelector("svg").setAttribute("height", _height);
+    const svg = document.querySelector("svg")
+
+    if (svg) {
+      svg.setAttribute("width", _width);
+      svg.setAttribute("height", _height);
+    }
   };
 
   useEffect(() => {
