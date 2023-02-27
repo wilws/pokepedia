@@ -36,7 +36,7 @@ const State = (props: Props) => {
       _width = "400";
       _height = "250";
     } else if (innerWidth >= 768) {
-       _width = "500";
+       _width = "700";
       _height = "320";
     }
 
