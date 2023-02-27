@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from ".";
 
-
-
 type PokemonNameAndUrl = {
     name: string,
     url: string,
@@ -43,8 +41,6 @@ const initialState: PokemonsObj = {
   shadowDataPool: { recordNo: 0, data: [],next:null },
   searchMode: false,
 };
-
-
 
 const pokemonSlice = createSlice({
   name: "pokemon",
@@ -93,11 +89,7 @@ const pokemonSlice = createSlice({
     },
 
     updateShadowPool: (state, action: PayloadAction<shadowDataObj>) => {
-      // state.shadowDataPool.data = action.payload.data;
-      // state.shadowDataPool.recordNo = action.payload.recordNo;
-      // state.shadowDataPool.next = action.payload.next;
       state.shadowDataPool = { ... action.payload };
-      // state.supplier = { ...state.shadowDataPool };
       state.supplier.data = state.shadowDataPool.data;
       state.supplier.recordNo = state.shadowDataPool.recordNo;
     },
@@ -234,9 +226,9 @@ export const setShadowDataPool = (searchWords:string) => {
 
 
 // Thunk: Fetch data from server when search bar is on
-export const LoadDataFromShadowPool = () => {
+// export const LoadDataFromShadowPool = () => {
   // Fetch data from server when search bar is on
-};
+// };
 
 
 // Thunk: Fetch Single Pokemon data

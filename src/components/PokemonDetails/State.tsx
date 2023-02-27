@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import RadarChart from "react-svg-radar-chart";
 import "react-svg-radar-chart/build/css/index.css";
 
-
 interface Props {
   stats: Array<states>;
   isParentReady: boolean;
@@ -27,8 +26,6 @@ const State = (props: Props) => {
   const [_specialDefense, _setSpecialDefense] = useState<number>(0);
   const [_speed, _setSpeed] = useState<number>(0);
 
-  const [graphSize, setGraphSize] = useState<number>(0);
-
   const determineGraphSize = () => {
   
     const { innerWidth: width, innerHeight: height } = window;
@@ -41,14 +38,7 @@ const State = (props: Props) => {
     } else if (innerWidth >= 768) {
        _graphSize = "500";
       _height = "320";
-    // } else if (innerWidth <= 1024) {
-    //   _graphSize = 280;
-    // } else if (innerWidth <= 1280) {
-    //   _graphSize = 280;
-    // } else if (innerWidth <= 1280) {
-    //   _graphSize = 280;
     }
-    // setGraphSize(_graphSize);
 
     document.querySelector("svg").setAttribute("width", _graphSize);
     document.querySelector("svg").setAttribute("height", _height);
@@ -93,19 +83,13 @@ const State = (props: Props) => {
     _setSpecialDefense(_specialDefend_);
     _setSpeed(_speed_);
 
-
   }, [props.isParentReady]);
 
 
-
-
-
   useEffect(() => {
-
     window.addEventListener("resize", determineGraphSize);
     return () => window.removeEventListener("resize", determineGraphSize);
   }, []);
-
 
 
   return (

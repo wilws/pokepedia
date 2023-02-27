@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import Ability from "./Ability";
-import { useRouter } from "next/router";
 
-let initial = true;
+
 interface Props {
   abilities: Array<abilities>;
   showSkill: boolean;
@@ -10,19 +9,21 @@ interface Props {
   closeFunction: () => void;
 }
 
+let initial = true;
 const Abilities = (props: Props) => {
 
-  const router = useRouter();
   const [divClassName, setDivClassName] = useState<string>("translate-x-p110");
 
-
   // Style of the main div
-  const divStyle = `relative ease-in duration-300 
-     z-40 bg-slate-100 rounded-2xl p-5 pt-10 overflow-y-scroll h-full
+  const divStyle = `
+      relative ease-in duration-300 
+      z-40 bg-slate-100 rounded-2xl 
+      p-5 pt-10 overflow-y-scroll h-full
       bg-opacity-95 xl:translate-x-0
+      xl:w-11/12 xl:bg-opacity-25 
+      xl:flex-1 xl:h-auto xl:overflow-y-scroll
+    `;
 
-      xl:w-11/12 xl:bg-opacity-25 xl:flex-1 xl:h-auto  xl:overflow-y-scroll
-     `;
   useEffect(() => {
 
     if (initial) {
@@ -34,20 +35,20 @@ const Abilities = (props: Props) => {
       return;
     }
 
-
     if (props.showSkill) {
       setDivClassName(divStyle);
+
     } else {
       setDivClassName(`${divStyle} translate-x-p110`);
     }
+
   }, [props.showSkill, props.isParentReady]);
+
 
   const closeSkill = () =>{
     props.closeFunction();
   }
 
-
- 
   let abilitiesKey = 0;
   return (
     <div className={divClassName}>

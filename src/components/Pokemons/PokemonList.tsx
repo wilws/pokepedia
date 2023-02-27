@@ -6,22 +6,16 @@ import {
   getSearchMode,
 } from "@/store/pokemons-slice";
 import { getImage, extractId } from "@/utils/utils";
-
 import { useAppDispatch, useAppSelector } from "../../store/";
 import { useEffect, useRef } from "react";
 
-
- 
-
 const PokemonList = (): JSX.Element => {
-
 
   const supplier = useAppSelector(getDataSupplier);
   const searchMode = useAppSelector(getSearchMode);
   const container = useRef<HTMLHeadingElement>(null);
   const dispatch = useAppDispatch();
   
-
   let isInitial = true; 
   useEffect(() => {
     if (isInitial) {
@@ -30,12 +24,15 @@ const PokemonList = (): JSX.Element => {
     }
   }, []);
 
+
   useEffect(() => {
     const handleScroll = () => {
+
       if (!container.current) return;
+
       const travelDistance = window.innerHeight + window.pageYOffset;
-      const triggerPoint =
-        container.current.offsetTop + container.current.offsetHeight / 1.5;
+      const triggerPoint = container.current.offsetTop + container.current.offsetHeight / 1.5;
+
       if (travelDistance > triggerPoint) {
         if (!searchMode) {
           dispatch(LoadDataFromPool());
@@ -47,7 +44,7 @@ const PokemonList = (): JSX.Element => {
         // }
       }
     };
-
+    
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

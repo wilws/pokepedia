@@ -28,7 +28,6 @@
 .dot:hover{
     /* stroke:#bbb;r:8 */
 }
-
     
 .caption{
     fill:rgba(61, 61, 61, 0.815)!important;
@@ -36,7 +35,6 @@
     text-shadow:none !important;
     font-size: 15px;
     text-transform: uppercase;
- 
 }
 
 /* HP */

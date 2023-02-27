@@ -8,11 +8,11 @@ import { FastAverageColor } from "fast-average-color";
 import Abilities from "../../../components/PokemonDetails/Abilities"
 
 
-let initial1 = true;
-let initial2 = true;
 const Pokemon = () => {
+
   const router = useRouter();
   const dispatch = useAppDispatch();
+
   const [abilities, setAbilities] = useState<Array<abilities>>([]);
   const [stats, setStats] = useState<Array<states>>([]);
   const [imgSrc, setImgSrc] = useState<string>("");
@@ -22,7 +22,6 @@ const Pokemon = () => {
   const [isParentReady, setIsParentReady] = useState<boolean>(false);
 
 
- 
   useEffect(() => {
 
     if (router.isReady) {
@@ -34,6 +33,7 @@ const Pokemon = () => {
 
       dispatch(fetchSinglePokemonData(id))
       .then((response) => {
+
           if (
             !response?.abilities.length ||
             !response?.stats.length ||
@@ -49,24 +49,30 @@ const Pokemon = () => {
           const imgPath = getImage(id)
           setImgSrc(imgPath);
           return imgPath;
-        })
-        .then((imgPath:string) => {
-          // set background image
-          const fac = new FastAverageColor();
-          return fac.getColorAsync(imgPath);
-        })
-        .then((color) => {
-          if (backgroundRef.current) {
-            backgroundRef.current.style.backgroundColor = color.rgba;
-          } else {
-            return Promise.reject("empty backgroundRef.current");
-          }
-          setIsParentReady(true);
-        })
-        .catch((err) => {
-          // error handling
-          console.log(err);
-        });
+
+      })
+      .then((imgPath:string) => {
+
+        // set background color
+        const fac = new FastAverageColor();
+        return fac.getColorAsync(imgPath);
+
+      })
+      .then((color) => {
+
+        if (backgroundRef.current) {
+          backgroundRef.current.style.backgroundColor = color.rgba;
+
+        } else {
+          return Promise.reject("empty backgroundRef.current");
+        }
+        // signal to child. Activate their useEffect()
+        setIsParentReady(true);
+      })
+      .catch((err) => {
+        // error handling
+        console.log(err);
+      });
     }
   }, [router.isReady]);
 
@@ -78,7 +84,9 @@ const Pokemon = () => {
 
 
   const buttonStyle =
-    "absolute bottom-5 left-5 w-4/12 z-50 rounded-lg bg-slate-600 text-white pl-2 pr-2 mt-2 text-base z-0 md:text-2xl md:w-3/12 xl:invisible";
+    `absolute bottom-5 left-5 w-4/12 z-50 rounded-lg 
+     bg-slate-600 text-white pl-2 pr-2 mt-2 text-base 
+     z-0 md:text-2xl md:w-3/12 xl:invisible`;
 
   return (
     <div
@@ -98,7 +106,7 @@ const Pokemon = () => {
       </h1>
 
       <img
-        className="flex-none h-2/4 relative left-1/2 -translate-x-1/2 object-contain md:h-1/2 md:w-8/12 md:object-contain  xl:left:0  xl:translate-x-0 xl:absolute xl:right-0 xl:top-96"
+        className="flex-none h-2/4 relative left-1/2 -translate-x-1/2 object-contain md:h-1/2 md:w-8/12 md:object-contain xl:left:0 xl:translate-x-0 xl:absolute xl:right-0 xl:top-96"
         src={imgSrc}
       />
 

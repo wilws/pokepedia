@@ -1,5 +1,7 @@
 import SearchBar from "./SearchBar";
+
 const Header = () => {
+  
   return (
     <header className="w-full  lg:flex lg:justify-between lg:items-end lg:pl-3 pr-3">
       <div className="text-center mb-2 pt-4 md:pt-9 lg:text-left lg:flex-none">

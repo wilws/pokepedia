@@ -9,13 +9,10 @@ export const extractId = (url: string) : string => {
   return url.split("/")[6];
 };
 
-
 export type getAbilityDescriptionReturn = {
   effect: string,
   short_effect: string,
 };
-
-
 
 export const getAbilityDescription = (
   effectEntries: Array<effectEntry>,

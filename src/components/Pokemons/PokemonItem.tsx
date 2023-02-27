@@ -9,17 +9,13 @@ interface PokemonItemProp {
   imgUrl: string;
 }
 
-
 const PokemonItem = (props: PokemonItemProp) => {
 
-
-  const { id, name, url, imgUrl } = props;
+  const { id, name, imgUrl } = props;
   const backgroundRef = useRef<HTMLDivElement>(null);
   const link = `/pokemons/${id}`;
 
 
-
- 
   useEffect(() => {
     const fac = new FastAverageColor();
     fac
@@ -33,10 +29,6 @@ const PokemonItem = (props: PokemonItemProp) => {
         console.log(e);
       });
   }, [imgUrl]);
-
-
-
-
 
   return (
     <li className="relative list-none md-2 w-full h-40 pt-5 md:h-52 lg:min-w-90 lg:w-1/3 lg:h-150 lg:pt-0 lg:max-w-42 lg:p-3 lg:mb-3  xl:w-1/4 2xl:w-1/5">
