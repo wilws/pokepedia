@@ -16,7 +16,7 @@ const SearchBar = () => {
   
   
   useEffect(() => {
-
+    
     if (initial){
         initial = false;
         return;

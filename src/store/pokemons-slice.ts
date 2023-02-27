@@ -209,15 +209,16 @@ export const LoadDataFromPool = () => {
 export const setShadowDataPool = (searchWords:string) => {
   // copy data in data pool to shadow data pool
   return async (dispatch: any, getState: () => RootState) => {
-  
+    
     if (searchWords.length === 0) return;
 
     const shadowDataPool: shadowDataObj = { data: [], recordNo: 0, next:null };
     const dataPool = getState().pokemon.dataPool;
-
-    shadowDataPool.data =  dataPool.data.filter((data) =>
-      data.name.includes(searchWords)
-    );
+    const _arr = dataPool.data.filter((data) => {
+      return (data.name.indexOf(searchWords.toLowerCase()) != -1);
+    });
+ 
+    shadowDataPool.data = _arr;
     shadowDataPool.recordNo = shadowDataPool.data.length;
     shadowDataPool.next = getState().pokemon.next;
     dispatch(updateShadowPool(shadowDataPool));
