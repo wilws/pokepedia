@@ -119,9 +119,9 @@ const State = (props: Props) => {
                 speed: _speed,
               },
               meta: { color: "blue" },
-            },
+            }
           ]}
-          size = { 300 }
+          size={ 300 }
         />
       </div>
     </div>
