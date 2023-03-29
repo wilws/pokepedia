@@ -73,12 +73,14 @@ const State = (props: Props) => {
     const _attack_ =
       stats[1].base_stat / 100 > 1 ? 1 : stats[1].base_stat / 100;
     const _specialAttack_ =
-      stats[2].base_stat / 100 > 1 ? 1 : stats[3].base_stat / 100;
+      stats[3].base_stat / 100 > 1 ? 1 : stats[3].base_stat / 100;
     const _defend_ =
-      stats[3].base_stat / 100 > 1 ? 1 : stats[2].base_stat / 100;
+      stats[2].base_stat / 100 > 1 ? 1 : stats[2].base_stat / 100;
     const _specialDefend_ =
       stats[4].base_stat / 100 > 1 ? 1 : stats[4].base_stat / 100;
     const _speed_ = stats[5].base_stat / 100 > 1 ? 1 : stats[5].base_stat / 100;
+
+    console.log(_defend_)
 
     _setHp(_hp_);
     _setAttack(_attack_);
